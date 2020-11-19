@@ -11,15 +11,18 @@
       </b-nav-item>
 
       <b-nav-item to="/medicine">
-        <router-link to="/medicine">Medicine</router-link>
+        <router-link to="/medicine">Medicines</router-link>
       </b-nav-item>
 
       <b-nav-item to="/Patient">
-        <router-link to="/patient">Patient</router-link>
+        <router-link to="/patient">Patients</router-link>
       </b-nav-item>
 
       <b-nav-item to="/login">
         <router-link to="/login">Login</router-link>
+      </b-nav-item>
+      <b-nav-item to="/other">
+        <router-link to="/other">Pruebas</router-link>
       </b-nav-item>
     </b-nav>
   </div>

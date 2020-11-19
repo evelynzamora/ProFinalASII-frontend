@@ -94,7 +94,7 @@
                 <b-button type="reset" variant="danger">Reset</b-button>
             </b-form>
         </b-modal>
-        <b-table striped hover :items="patient"  ></b-table>
+        <b-table striped hover :items="patient" :fields="fields"></b-table>
     </div>
 </template>
 
@@ -104,6 +104,7 @@
         data(){
             return {
                 patient:null,
+
                 fields: [
                     {key: 'idPerson', label: 'ID'},
                     {key: 'name', label: 'Name'},

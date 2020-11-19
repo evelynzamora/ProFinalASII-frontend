@@ -7,27 +7,26 @@
 
         
         <b-modal id="modal-1" title="Add Employees">
-            <b-form @submit="onSubmit_add" @reset="onReset" v-if="show">
+            <b-form @submit="onSubmit" @reset="onReset" v-if="show">
                 <b-form-group
-                    id="input-group-idEmployee"
+                    id="input-group-id_employee"
                     label="ID Employee:"
-                    label-for="input-idEmployee">
+                    label-for="input-id_employee">
                         <b-form-input
-                            id="input-idEmployee"
-                            v-model="form.idEmployee"
+                            id="input-id_employee"
+                            v-model="form.id_employee"
                             type="text"
                             required
                             placeholder="Enter ID Employee">
-                            disabled 
-                        </b-form-input>                    
+                        </b-form-input>
                 </b-form-group>
                 <b-form-group
-                    id="input-group-idJob"
+                    id="input-group-id_job"
                     label="ID Job:"
-                    label-for="input-idJob">
+                    label-for="input-id_job">
                         <b-form-input
-                            id="input-idJob"
-                            v-model="form.idJob"
+                            id="input-id_job"
+                            v-model="form.id_job"
                             type="text"
                             required
                             placeholder="Enter ID Job">
@@ -124,26 +123,26 @@
 
 
         <b-modal id="modal-2" title="Update Employees">
-            <b-form @submit="onSubmit_update" @reset="onReset" v-if="show">
+            <b-form @submit="onSubmit" @reset="onReset" v-if="show">
                 <b-form-group
-                    id="input-group-idEmployee"
+                    id="input-group-id_employee"
                     label="ID Employee:"
-                    label-for="input-idEmployee">
+                    label-for="input-id_employee">
                         <b-form-input
-                            id="input-idEmployee"
-                            v-model="form.idEmployee"
+                            id="input-id_employee"
+                            v-model="form.id_employee"
                             type="text"
                             required
                             placeholder="Enter ID Employee">
                         </b-form-input>
                 </b-form-group>
                 <b-form-group
-                    id="input-group-idJob"
+                    id="input-group-id_job"
                     label="ID Job:"
-                    label-for="input-idJob">
+                    label-for="input-id_job">
                         <b-form-input
-                            id="input-idJob"
-                            v-model="form.idJob"
+                            id="input-id_job"
+                            v-model="form.id_job"
                             type="text"
                             required
                             placeholder="Enter ID Job">
@@ -240,14 +239,14 @@
 
 
         <b-modal id="modal-3" title="Delete Employees">
-            <b-form @submit="onSubmit_delete" @reset="onReset" v-if="show">
+            <b-form @submit="onSubmit" @reset="onReset" v-if="show">
                 <b-form-group
                     id="input-group-id_employee"
                     label="ID Employee:"
                     label-for="input-id_employee">
                         <b-form-input
                             id="input-id_employee"
-                            v-model="form.idEmployee"
+                            v-model="form.id_employee"
                             type="text"
                             required
                             placeholder="Enter ID Employee">
@@ -260,7 +259,7 @@
         </b-modal>
 
 
-        <b-table striped hover :items="employee" :fields="fields"></b-table>
+        <b-table striped hover :items="patient" :fields="fields"></b-table>
     </div>
 </template>
 
@@ -272,8 +271,8 @@
                 employee:null,
 
                 fields: [
-                    {key: 'idEmpmloyee', label: 'ID'},
-					{key: 'job', label: 'Job'},
+                    {key: 'idEmployee', label: 'ID'},
+					{key: 'idJob', label: 'Job'},
                     {key: 'name', label: 'Name'},
                     {key: 'surname', label: 'Last Name'},
                     {key: 'dpi', label: 'DPI'},
@@ -309,24 +308,15 @@
                     })
                     .catch( e => console.log(e))
             },
-            onSubmit_add(evt) {
+            onSubmit(evt) {
                 evt.preventDefault()
+                //alert(JSON.stringify(this.form))
                 axios.post('/ClinicaWeb-1.0-SNAPSHOT/crudemployee', this.form)
-                alert(JSON.stringify('exito'))
             },
-            onSubmit_update(evt){
-                evt.preventDefault()
-                axios.put('/ClinicaWeb-1.0-SNAPSHOT/crudemployee', this.form)
-                alert(JSON.stringify('exito'))
-            },
-            onSubmit_delete(evt){
-                evt.preventDefault()
-                axios.delete('/ClinicaWeb-1.0-SNAPSHOT/crudemployee', this.form)
-                alert(JSON.stringify('exito'))
-            },
-
             onReset(evt) {
                 evt.preventDefault()
+                // Reset our form values
+                // Trick to reset/clear native browser form validation state
                 this.show = false
                 this.$nextTick(() => {
                 this.show = true
@@ -337,5 +327,3 @@
 </script>
 
 <style scoped>
-
-</style>

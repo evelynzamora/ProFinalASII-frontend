@@ -19,7 +19,7 @@
         id="pass"
         placeholder="Password"
       >
-      <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
+      <p v-if="error" class="error">Has introducido mal el usuario o la contraseña.</p>
       <input class="form-submit" type="submit" value="Login">
     </form>
   </div>
@@ -37,7 +37,11 @@ export default {
     async login() {
       try {
         await auth.login(this.name, this.pass);
-        this.$router.push("/employee");
+        const user = {
+          name: this.name
+        };
+        auth.setUserLogged(user);
+        this.$router.push("/");
         console.log("done");
       } catch (error) {
         this.error = true;
