@@ -21,9 +21,6 @@
       <b-nav-item to="/login">
         <router-link to="/login">Login</router-link>
       </b-nav-item>
-      <b-nav-item to="/other">
-        <router-link to="/other">Pruebas</router-link>
-      </b-nav-item>
     </b-nav>
   </div>
 </template>

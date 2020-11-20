@@ -16,7 +16,7 @@
                             id="input-idEmployee"
                             v-model="form.idEmployee"
                             type="text"
-                            required
+                            disabled
                             placeholder="Enter ID Employee">
                             disabled 
                         </b-form-input>                    

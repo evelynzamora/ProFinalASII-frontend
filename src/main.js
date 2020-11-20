@@ -9,7 +9,6 @@ import Login from './views/Login'
 import Employee from './views/Employee'
 import Medicine from './views/Medicine'
 import Patient from './views/Patient'
-import Other from './views/Other'
 
 Vue.use(Router);
 
@@ -18,8 +17,7 @@ const routes = [
   { path: '/login', component: Login},
   { path: '/employee', component: Employee},
   { path: '/medicine', component: Medicine},
-  { path: '/patient', component: Patient},
-  { path: '/other', component: Other}
+  { path: '/patient', component: Patient}
 ];
 
 const router = new Router({
